@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.1"
+
+    defaultConfig {
+        applicationId "com.digigene.authenticatortest"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:24.+'
+    implementation 'com.android.support:support-annotations:24.+'
+    implementation project(':account-authenticator')
+    /* The following line can be used instead of the above for automatically downloading the library */
+//    compile 'com.digigene.android:account-authenticator:+'
+}
